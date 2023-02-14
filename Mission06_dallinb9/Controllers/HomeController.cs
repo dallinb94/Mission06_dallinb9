@@ -13,14 +13,43 @@ namespace Mission06_dallinb9.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private MovieContext _movieContext { get; set; }
+
+        public HomeController(ILogger<HomeController> logger, MovieContext context)
         {
             _logger = logger;
+            _movieContext = context;
         }
 
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Podcasts()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult NewMovie()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult NewMovie(NewMovieModel nm)
+        {
+            if (ModelState.IsValid)
+            {
+                _movieContext.Add(nm);
+                _movieContext.SaveChanges();
+                return View("Confirmation", nm);
+            }
+            else
+            {
+                return View(nm);
+            }
         }
 
         public IActionResult Privacy()
