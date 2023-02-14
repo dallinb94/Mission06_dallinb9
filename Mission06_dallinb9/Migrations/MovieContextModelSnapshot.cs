@@ -61,10 +61,34 @@ namespace Mission06_dallinb9.Migrations
                             Director = "Christopher Nolan",
                             Edited = "",
                             LentTo = "",
-                            Notes = "",
+                            Notes = "My favorite movie ever",
                             Rating = "PG-13",
                             Title = "Interstellar",
                             Year = 2014
+                        },
+                        new
+                        {
+                            MovieID = 2,
+                            Category = "Sci-fi",
+                            Director = "Doug Liman",
+                            Edited = "",
+                            LentTo = "",
+                            Notes = "My fav Tom Cruise movie",
+                            Rating = "PG-13",
+                            Title = "Edge of Tomorrow",
+                            Year = 2014
+                        },
+                        new
+                        {
+                            MovieID = 3,
+                            Category = "Action",
+                            Director = "William Phelps",
+                            Edited = "",
+                            LentTo = "",
+                            Notes = "All-time family favorite",
+                            Rating = "PG",
+                            Title = "North Shore",
+                            Year = 1987
                         });
                 });
 #pragma warning restore 612, 618

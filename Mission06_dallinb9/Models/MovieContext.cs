@@ -29,7 +29,33 @@ namespace Mission06_dallinb9.Models
                 Rating = "PG-13",
                 Edited = "",
                 LentTo = "",
-                Notes = "",
+                Notes = "My favorite movie ever",
+            },
+
+            new NewMovieModel
+            {
+                MovieID = 2,
+                Category = "Sci-fi",
+                Title = "Edge of Tomorrow",
+                Year = 2014,
+                Director = "Doug Liman",
+                Rating = "PG-13",
+                Edited = "",
+                LentTo = "",
+                Notes = "My fav Tom Cruise movie",
+            },
+
+            new NewMovieModel
+            {
+                MovieID = 3,
+                Category = "Action",
+                Title = "North Shore",
+                Year = 1987,
+                Director = "William Phelps",
+                Rating = "PG",
+                Edited = "",
+                LentTo = "",
+                Notes = "All-time family favorite",
             });
         }
     }

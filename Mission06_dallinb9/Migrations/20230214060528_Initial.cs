@@ -29,7 +29,17 @@ namespace Mission06_dallinb9.Migrations
             migrationBuilder.InsertData(
                 table: "Movies",
                 columns: new[] { "MovieID", "Category", "Director", "Edited", "LentTo", "Notes", "Rating", "Title", "Year" },
-                values: new object[] { 1, "Sci-fi", "Christopher Nolan", "", "", "", "PG-13", "Interstellar", 2014 });
+                values: new object[] { 1, "Sci-fi", "Christopher Nolan", "", "", "My favorite movie ever", "PG-13", "Interstellar", 2014 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "MovieID", "Category", "Director", "Edited", "LentTo", "Notes", "Rating", "Title", "Year" },
+                values: new object[] { 2, "Sci-fi", "Doug Liman", "", "", "My fav Tom Cruise movie", "PG-13", "Edge of Tomorrow", 2014 });
+
+            migrationBuilder.InsertData(
+                table: "Movies",
+                columns: new[] { "MovieID", "Category", "Director", "Edited", "LentTo", "Notes", "Rating", "Title", "Year" },
+                values: new object[] { 3, "Action", "William Phelps", "", "", "All-time family favorite", "PG", "North Shore", 1987 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
