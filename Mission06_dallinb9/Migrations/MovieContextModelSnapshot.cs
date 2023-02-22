@@ -15,15 +15,45 @@ namespace Mission06_dallinb9.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.32");
 
+            modelBuilder.Entity("Mission06_dallinb9.Models.Category", b =>
+                {
+                    b.Property<int>("CategoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CategoryName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("CategoryID");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            CategoryName = "Comedy"
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            CategoryName = "Sci-Fi"
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            CategoryName = "Action"
+                        });
+                });
+
             modelBuilder.Entity("Mission06_dallinb9.Models.NewMovieModel", b =>
                 {
                     b.Property<int>("MovieID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                    b.Property<int>("CategoryID")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Director")
                         .IsRequired()
@@ -51,13 +81,15 @@ namespace Mission06_dallinb9.Migrations
 
                     b.HasKey("MovieID");
 
+                    b.HasIndex("CategoryID");
+
                     b.ToTable("Movies");
 
                     b.HasData(
                         new
                         {
                             MovieID = 1,
-                            Category = "Sci-fi",
+                            CategoryID = 2,
                             Director = "Christopher Nolan",
                             Edited = "",
                             LentTo = "",
@@ -69,7 +101,7 @@ namespace Mission06_dallinb9.Migrations
                         new
                         {
                             MovieID = 2,
-                            Category = "Sci-fi",
+                            CategoryID = 2,
                             Director = "Doug Liman",
                             Edited = "",
                             LentTo = "",
@@ -81,7 +113,7 @@ namespace Mission06_dallinb9.Migrations
                         new
                         {
                             MovieID = 3,
-                            Category = "Action",
+                            CategoryID = 3,
                             Director = "William Phelps",
                             Edited = "",
                             LentTo = "",
@@ -90,6 +122,15 @@ namespace Mission06_dallinb9.Migrations
                             Title = "North Shore",
                             Year = 1987
                         });
+                });
+
+            modelBuilder.Entity("Mission06_dallinb9.Models.NewMovieModel", b =>
+                {
+                    b.HasOne("Mission06_dallinb9.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

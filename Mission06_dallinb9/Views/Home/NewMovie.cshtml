@@ -7,9 +7,18 @@
 <h1>Add a Movie</h1>
 <div>
     <form method="post">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
         <div>
-            <label asp-for="Category">Category</label>
-            <input id="Category" asp-for="Category" />
+            <label asp-for="CategoryID">Category:</label>
+            <select id="Category" asp-for="CategoryID">
+                <option value="">Select a Category</option>
+                @foreach (Category c in ViewBag.Categories)
+                { 
+                    <option value="@c.CategoryID">@c.CategoryName</option>
+                }
+            </select>
         </div>
 
         <div>
@@ -42,7 +51,7 @@
             <select id="Edited" asp-for="Edited">
                 <option value="" selected></option>
                 <option value="false">No</option>
-                <option value="true">Yes</option> 
+                <option value="true">Yes</option>
             </select>
         </div>
 
@@ -55,8 +64,6 @@
             <label asp-for="Notes">Notes:</label>
             <input id="Notes" asp-for="Notes" maxlength="25" />
         </div>
-
-        <div asp-validation-summary="All" class="text-danger"></div>
 
         <button id="addMovieButton" type="submit">Add Movie</button>
     </form>

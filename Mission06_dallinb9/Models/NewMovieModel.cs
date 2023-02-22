@@ -13,9 +13,6 @@ namespace Mission06_dallinb9.Models
         [Required]
         public int MovieID { get; set; }
 
-        [Required(ErrorMessage = "You must enter a Category")]
-        public string Category { get; set; }
-
         [Required(ErrorMessage = "You must enter a Title")]
         public string Title { get; set; }
 
@@ -32,5 +29,9 @@ namespace Mission06_dallinb9.Models
         public string Edited { get; set; }
         public string LentTo { get; set; }
         public string Notes { get; set; }
+
+        //Build ForeignKey Relationship
+        public int CategoryID { get; set; }
+        public Category Category { get; set; }
     }
 }
