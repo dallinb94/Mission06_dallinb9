@@ -70,7 +70,7 @@ namespace Mission06_dallinb9.Controllers
 
             var movie = _movieContext.Movies.Single(x => x.MovieID == id);
 
-            return View("NewMovie", movie);
+            return View("UpdateMovie", movie);
         }
 
         [HttpPost]
@@ -84,7 +84,7 @@ namespace Mission06_dallinb9.Controllers
             else
             {
                 ViewBag.Categories = _movieContext.Categories.ToList();
-                return View("NewMovie", movie);
+                return View("UpdateMovie", movie);
             }
         }
 
