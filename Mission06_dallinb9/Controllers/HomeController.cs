@@ -76,9 +76,16 @@ namespace Mission06_dallinb9.Controllers
         [HttpPost]
         public IActionResult Edit(NewMovieModel movie)
         {
-            _movieContext.Update(movie);
-            _movieContext.SaveChanges();
-            return RedirectToAction("MovieList");
+            if (ModelState.IsValid) {
+                _movieContext.Update(movie);
+                _movieContext.SaveChanges();
+                return RedirectToAction("MovieList");
+            }
+            else
+            {
+                ViewBag.Categories = _movieContext.Categories.ToList();
+                return View("NewMovie", movie);
+            }
         }
 
         [HttpGet]
